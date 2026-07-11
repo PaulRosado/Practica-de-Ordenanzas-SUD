@@ -14,27 +14,29 @@ body {
     padding: 20px;
 }
 
+/* Contenedor Principal Adaptable */
 .game-container {
     background-color: #ffffff;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    max-width: 500px; /* Ajustado para un formato más cómodo */
+    max-width: 500px;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 .screen {
     width: 100%;
-    display: block;
 }
 
-/* --- ESTILOS DE LA VENTANA DE INICIO --- */
+/* --- VENTANA DE INICIO --- */
 .menu-image-section {
     width: 100%;
-    height: 380px;
-    background-color: #111;
+    height: 360px;
+    background-color: #3498db; /* Mismo color azul que el botón de agua */
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 }
 
 .menu-image-section img {
@@ -45,20 +47,20 @@ body {
 }
 
 .menu-content-section {
-    padding: 30px 24px;
+    padding: 24px 20px;
     text-align: center;
 }
 
 .menu-content-section h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: #2c3e50;
     margin-bottom: 8px;
 }
 
 .menu-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #718096;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .menu-buttons {
@@ -72,7 +74,7 @@ body {
     color: white;
     border: none;
     padding: 14px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: bold;
     border-radius: 12px;
     cursor: pointer;
@@ -84,78 +86,141 @@ body {
 }
 
 .menu-btn:hover { background-color: #1a252f; transform: translateY(-1px); }
-
-.secondary-menu-btn {
-    background-color: #3498db;
-}
+.secondary-menu-btn { background-color: #3498db; }
 .secondary-menu-btn:hover { background-color: #2980b9; }
 
-/* --- ESTILOS DE LA VENTANA DE JUEGO --- */
+
+/* --- NUEVA BARRA DE NAVEGACIÓN SUPERIOR DEL JUEGO --- */
+.top-nav-bar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
 .back-btn {
-    position: absolute;
-    margin: 12px;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.9);
+    background: #ffffff;
     border: 1px solid #cbd5e1;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: bold;
     cursor: pointer;
     color: #4a5568;
     transition: all 0.2s;
 }
-.back-btn:hover { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.back-btn:hover { background: #edf2f7; }
 
-.image-section { width: 100%; height: 200px; background-color: #eaeaea; position: relative; }
+.selector-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.selector-container label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #4a5568;
+}
+
+.styled-select {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: white;
+    color: #2c3e50;
+    cursor: pointer;
+    outline: none;
+}
+.styled-select:focus { border-color: #3498db; }
+
+
+/* --- CUERPO INTERACTIVO DEL JUEGO --- */
+.image-section { 
+    width: 100%; 
+    height: 160px; 
+    background-color: #eaeaea; 
+}
 .image-section img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.progress-header { padding: 20px 24px 0 24px; text-align: center; }
-h2 { color: #2c3e50; font-size: 1.3rem; }
-.selector-container { margin-top: 10px; display: flex; justify-content: center; align-items: center; gap: 8px; }
-.selector-container label { font-size: 0.9rem; font-weight: 600; color: #4a5568; }
-.styled-select { padding: 6px 12px; font-size: 0.9rem; border: 2px solid #cbd5e1; border-radius: 8px; background-color: white; color: #2c3e50; cursor: pointer; }
-.styled-select:focus { border-color: #3498db; outline: none; }
-.content-section { padding: 20px 24px; min-height: 200px; }
-.prayer-text { font-size: 1rem; line-height: 1.7; color: #34495e; text-align: justify; }
 
-.blank-space { display: inline-block; min-width: 75px; border-bottom: 2px dashed #3498db; color: #3498db; font-weight: bold; text-align: center; cursor: pointer; padding: 0 4px; }
+.progress-header { padding: 15px 20px 0 20px; text-align: center; }
+h2 { color: #2c3e50; font-size: 1.25rem; }
+
+.content-section { padding: 16px 20px; min-height: 180px; }
+.prayer-text { font-size: 1rem; line-height: 1.6; color: #34495e; text-align: justify; }
+
+/* Espacios vacíos ajustados para móviles */
+.blank-space { display: inline-block; min-width: 70px; border-bottom: 2px dashed #3498db; color: #3498db; font-weight: bold; text-align: center; cursor: pointer; padding: 0 2px; }
 .blank-space.filled { color: #2c3e50; border-bottom: 2px solid #2c3e50; }
 .blank-space.active { background-color: #e8f4fd; border-bottom: 2px solid #3498db; }
 
-.options-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; }
-.word-btn { background-color: #3498db; color: white; border: none; padding: 8px 14px; font-size: 0.9rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
+.options-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 15px; }
+.word-btn { background-color: #3498db; color: white; border: none; padding: 8px 12px; font-size: 0.85rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
 .word-btn:hover { background-color: #2980b9; }
 .word-btn:disabled { background-color: #bdc3c7; cursor: not-allowed; }
 
+/* Listas ordenables */
 .sortable-list { display: flex; flex-direction: column; gap: 6px; }
-.phrase-item { background-color: #f8f9fa; border: 1px solid #e2e8f0; padding: 10px 14px; border-radius: 8px; cursor: grab; font-size: 0.9rem; color: #2c3e50; display: flex; align-items: center; gap: 10px; user-select: none; }
+.phrase-item { background-color: #f8f9fa; border: 1px solid #e2e8f0; padding: 10px 12px; border-radius: 8px; cursor: grab; font-size: 0.85rem; color: #2c3e50; display: flex; align-items: center; gap: 8px; user-select: none; }
 .phrase-item::before { content: "☰"; color: #a0aec0; }
 .phrase-item.dragging { opacity: 0.5; background-color: #e2e8f0; }
 
+/* Textarea de voz */
 .textarea-container { width: 100%; }
-.prayer-textarea { width: 100%; height: 140px; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; color: #2c3e50; resize: none; line-height: 1.5; }
+.prayer-textarea { width: 100%; height: 120px; padding: 10px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; color: #2c3e50; resize: none; line-height: 1.4; }
 .prayer-textarea:focus { border-color: #3498db; outline: none; }
-.hint-text { font-size: 0.8rem; color: #718096; margin-top: 6px; text-align: left; }
+.hint-text { font-size: 0.75rem; color: #718096; margin-top: 4px; }
 
-.voice-controls { display: flex; justify-content: center; margin-top: 15px; }
-.voice-btn { background-color: #e2e8f0; color: #4a5568; border: none; padding: 10px 18px; font-size: 0.95rem; font-weight: bold; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease; }
-.voice-btn:hover { background-color: #cbd5e1; }
+.voice-controls { display: flex; justify-content: center; margin-top: 12px; }
+.voice-btn { background-color: #e2e8f0; color: #4a5568; border: none; padding: 10px 16px; font-size: 0.9rem; font-weight: bold; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
 .voice-btn.listening { background-color: #e74c3c; color: white; animation: pulse 1.5s infinite; }
 
 @keyframes pulse {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
-    70% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(231, 76, 60, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
 }
 
-.footer-section { padding: 0 24px 24px 24px; text-align: center; }
-.feedback { font-size: 0.95rem; font-weight: bold; margin-bottom: 12px; min-height: 24px; }
+.footer-section { padding: 0 20px 20px 20px; text-align: center; }
+.feedback { font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; min-height: 22px; }
 .correct { color: #27ae60; }
 .incorrect { color: #c0392b; }
-.controls-container { display: flex; justify-content: center; gap: 12px; }
-.main-btn { padding: 10px 24px; font-size: 0.95rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; }
+.controls-container { display: flex; justify-content: center; gap: 10px; }
+.main-btn { padding: 10px 20px; font-size: 0.9rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; }
 #action-btn { background-color: #3498db; color: white; }
 .success-btn { background-color: #27ae60; color: white; }
 .secondary-btn { background-color: #718096; color: white; }
 
 .hidden { display: none !important; }
+
+/* --- MEDIA QUERY PARA DISPOSITIVOS MÓVILES EXTREMOS O AJUSTADOS --- */
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+    .game-container {
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+    }
+    .menu-image-section {
+        height: 290px;
+    }
+    .top-nav-bar {
+        padding: 8px 12px;
+    }
+    .styled-select {
+        max-width: 170px; /* Evita que el selector empuje al botón de volver */
+    }
+    .content-section {
+        padding: 12px 16px;
+    }
+    .phrase-item {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+}
