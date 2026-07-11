@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Memoria - Santa Cena</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="game-container">
+        
+        <!-- PANTALLA DE INICIO (MENU PRINCIPAL) -->
+        <div id="welcome-screen" class="screen">
+            <div class="menu-image-section">
+                <!-- Imagen de los élderes en el inicio -->
+                <img src="Elders.png" alt="Élderes" id="menu-img">
+            </div>
+            <div class="menu-content-section">
+                <h1>Práctica de Memorización</h1>
+                <p class="menu-subtitle">Selecciona la ordenanza que deseas practicar el día de hoy:</p>
+                
+                <div class="menu-buttons">
+                    <button class="menu-btn" onclick="startProject('pan')">
+                        <i class="fa-solid fa-bread-slice"></i> Bendición del Pan
+                    </button>
+                    <button class="menu-btn secondary-menu-btn" onclick="startProject('agua')">
+                        <i class="fa-solid fa-glass-water"></i> Bendición del Agua
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA DEL JUEGO INTERACTIVO -->
+        <div id="game-screen" class="screen hidden">
+            <!-- Botón Volver al Menú Principal -->
+            <button id="back-to-menu-btn" class="back-btn">📋 Volver al Menú</button>
+
+            <div class="image-section">
+                <!-- Imagen de la mesa de Santa Cena durante la práctica -->
+                <img src="Blessing_the_sacrament.jpg" alt="Bendición de la Santa Cena" id="character-img">
+            </div>
+
+            <div class="progress-header">
+                <h2 id="ordinance-title">Bendición del ...</h2>
+                <div class="selector-container">
+                    <label for="level-selector">Práctica:</label>
+                    <select id="level-selector" class="styled-select">
+                        <option value="1">Nivel 1: Completar Espacios</option>
+                        <option value="2">Nivel 2: Ordenar Bloques</option>
+                        <option value="3">Nivel 3: Memorización Completa</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="content-section" id="game-stage">
+                <!-- Contenido interactivo generado dinámicamente por JS -->
+            </div>
+
+            <div class="footer-section">
+                <div id="feedback-message" class="feedback"></div>
+                <div class="controls-container">
+                    <button id="action-btn" class="main-btn hidden">Verificar</button>
+                    <button id="next-level-btn" class="main-btn success-btn hidden">Siguiente Nivel ➔</button>
+                    <button id="reset-btn" class="main-btn secondary-btn hidden">Intentar de nuevo</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
